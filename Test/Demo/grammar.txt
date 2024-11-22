@@ -1,0 +1,2 @@
+S ::= EMPTY | a | a b | a b c | X | X y | y X
+X ::= x

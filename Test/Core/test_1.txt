@@ -1,0 +1,5 @@
+procedure P is 
+    object o;
+begin
+    o=1;
+end

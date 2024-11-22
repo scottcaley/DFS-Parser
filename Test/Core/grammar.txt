@@ -1,0 +1,26 @@
+<procedure> ::= procedure <id> is <decl-seq> begin <stmt-seq> end | procedure <id> is begin <stmt-seq> end
+<decl-seq> ::= <decl> | <decl> <decl-seq> | <function> | <function> <decl-seq>
+<stmt-seq> ::= <stmt> | <stmt> <stmt-seq>
+<decl> ::= <decl-integer> | <decl-obj>
+<decl-integer> ::= integer <id> ;
+<decl-obj> ::= object <id> ;
+<function> ::= procedure <id> ( <parameters> ) is <stmt-seq> end
+<parameters> ::= <id> | <id> , <parameters>
+<stmt> ::= <assign> | <if> | <loop> | <out> | <decl> | <call>
+<call> ::= begin <id> ( <parameters> ) ;
+<assign> ::= <id> = <expr> ; | <id> [ <id> ] = <expr> ; | <id> = new object ( <id> , <expr> ) ; | <id> : <id> ;
+<out> ::= out ( <expr> ) ;
+<if> ::= if <cond> then <stmt-seq> end | if <cond> then <stmt-seq> else <stmt-seq> end
+<loop> ::= while <cond> do <stmt-seq> end
+<cond> ::= <cmpr> | not <cond> | [ <cond> ] | <cmpr> or <cond> | <cmpr> and <cond>
+<cmpr> ::= <expr> == <expr> | <expr> < <expr>
+<expr> ::= <term> | <term> + <expr> | <term> - <expr>
+<term> ::= <factor> | <factor> * <term> | <factor> / <term>
+<factor> ::= <id> | <id> [ <id> ] | <const> | ( <expr> ) | in ( ) 
+
+<id> ::= default | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
+                 | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
+<const> ::= <significant-digit> <any-digits> | 0
+<any-digits> ::= <digit> <any-digits> | EMPTY
+<significant-digit> ::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<digit> ::= 0 | <significant-digit>
